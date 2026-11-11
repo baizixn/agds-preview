@@ -2,6 +2,8 @@
 
 **邀请制候选 · 0.1.0-preview.2 · bzx**
 
+本页介绍 Codex 入口。DeepSeek Harness 试用者请先按[适配包说明](adapters/deepseek-harness/README.md)打包，再按[使用指南](README.deepseek-harness.md)打开。
+
 AGDS 是一套在 Codex 中使用的游戏开发技能。这个候选包含项目初始化、工程、质量验证、项目记录和评审技能。首个练习让你检查一个独立目录，并预览 AGDS 会为它建立哪些协作文件。
 
 ## 安装前

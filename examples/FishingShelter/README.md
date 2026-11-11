@@ -8,13 +8,15 @@
 
 ## 一、打开起始工程并做只读检查
 
-1. 准备 Unity **6000.5.10f1**。第一次导入需要取得 Unity URP 17.5.0 依赖。Windows 上把整个 `FishingShelter` 文件夹复制到短路径，例如 `C:/Unity/IslandPreview`，以免 Unity 导入深层依赖时触及路径长度限制。
+1. 准备 Unity **6000.5.10f1**。第一次导入需要取得 Unity URP 17.5.0 依赖。Windows 上使用短路径，以免 Unity 导入深层依赖时触及路径长度限制。Codex 用户可以复制 `FishingShelter` 到短路径。Harness 用户按使用指南解压整个适配包，Unity 与 Harness 使用包内同一份练习。
 2. 在 Unity Hub 添加 `UnityProject`，打开 `Assets/FishingShelter/Scenes/Shelter_Starter.unity`。在 Game 视图看岛屿，码头连着棚区，中间入口有阻挡物。
 3. 运行 Unity 菜单 **AGDS → Shelter Exercise → Check Active Scene**。Console 应报告 `looseCubes=10`、`prefabRoots=0`、`blockedDoorways=1`、`lodGroups=0`。
 4. 运行 **Check Delivery** 检查棚区。起始版预期被拒绝，提示需要三个棚子根对象。这和改造后使用的是同一个棚区验收入口。
-5. 在安装 AGDS Preview 后，新开 Codex 聊天并选择这个练习副本。可以直接粘贴下面的话。
+5. 根据宿主打开会话，再粘贴下面的话。
+   - **Codex**：安装 Preview 后，新开 Codex 聊天并选择练习副本。
+   - **DeepSeek Harness**：打开包含 `.dsh` 的适配包根目录。用包内这份练习继续验收。
 
-> 请用 AGDS Preview 的 engineer-game 和 assure-game-quality 查看这个首岛练习。先解释起始场景的检查结果，列出交付差距和拟修改的文件。保持岛屿、码头、步道、三个泊位位置和固定镜头。自动检查脚本属于验收基准。只有我确认后才改造棚区。
+> 请载入 AGDS Preview 的 engineer-game 和 assure-game-quality，再查看这个首岛练习。先解释起始场景的检查结果，列出交付差距和拟修改的文件。保持岛屿、码头、步道、三个泊位位置和固定镜头。自动检查脚本属于验收基准。只有我确认后才改造棚区。
 
 ## 二、走完整的 Blender → Unity 交付
 
