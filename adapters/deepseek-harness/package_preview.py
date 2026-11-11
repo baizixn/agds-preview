@@ -11,15 +11,31 @@ from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 
 
 PACKAGE = "AGDS-Preview-DeepSeekHarness"
+PLUGIN_SOURCE = "adapters/deepseek-harness/plugin/"
 SOURCE_PATHS = (
-    "skills", "examples", "PREVIEW-TERMS-DRAFT.md", ".codex-plugin/plugin.json",
+    PLUGIN_SOURCE.rstrip("/"), "examples", "PREVIEW-TERMS-DRAFT.md",
     "README.deepseek-harness.md", "adapters/deepseek-harness/AGENTS.md",
 )
 SKILLS = (
-    "assure-game-quality", "bootstrap-game-project", "engineer-game",
-    "manage-project-memory", "review-candidate",
+    "assemble-game-environments",
+    "assure-game-quality",
+    "bootstrap-game-project",
+    "design-game",
+    "direct-game-art",
+    "direct-game-audio",
+    "engineer-game",
+    "evolve-studio-capabilities",
+    "integrate-interactive-audio",
+    "manage-project-memory",
+    "produce-game-2d-art",
+    "produce-game-3d-assets",
+    "produce-game-audio-assets",
+    "produce-game-project",
+    "produce-game-realtime-art",
+    "produce-game-static-character-hair",
+    "review-candidate",
+    "studio-orchestrator",
 )
-
 
 def git(root, *args):
     return subprocess.check_output(["git", "-c", "core.autocrlf=false", "-c", "core.eol=lf", "-C", str(root), *args])
@@ -32,19 +48,21 @@ def make_package(root):
         original = {member.filename: archive.read(member)
                     for member in archive.infolist() if not member.is_dir()}
 
-    version = json.loads(original.pop(".codex-plugin/plugin.json"))["version"] + "-dsh.1"
-    files = {".dsh/" + name if name.startswith("skills/") else name: data
-             for name, data in original.items()}
+    files = {
+        "plugin/" + name.removeprefix(PLUGIN_SOURCE) if name.startswith(PLUGIN_SOURCE) else name: data
+        for name, data in original.items()
+    }
+    version = json.loads(files["plugin/package.json"])["version"]
     files["README.md"] = files.pop("README.deepseek-harness.md")
     files["AGENTS.md"] = files.pop("adapters/deepseek-harness/AGENTS.md")
     discovered = tuple(sorted(PurePosixPath(name).parts[2] for name in files
-                              if name.startswith(".dsh/skills/") and name.endswith("/SKILL.md")))
+                              if name.startswith("plugin/skills/") and name.endswith("/SKILL.md")))
     if discovered != SKILLS:
-        raise ValueError(f"Unexpected project skills: {discovered}")
-    if ".dsh/skills/studio-orchestrator/references/task-learning.md" not in files:
+        raise ValueError(f"Unexpected plugin skills: {discovered}")
+    if "plugin/skills/studio-orchestrator/references/task-learning.md" not in files:
         raise ValueError("Engineering skill reference is missing.")
     manifest = {"package": version, "sourceCommit": commit, "hostTarget": "0.2.2-rc.1",
-                "skillRoot": ".dsh/skills", "skills": discovered,
+                "skillRoot": "plugin/skills", "skills": discovered,
                 "sha256": {name: sha256(data).hexdigest() for name, data in sorted(files.items())}}
     files["preview-manifest.json"] = (json.dumps(manifest, indent=2) + "\n").encode()
 

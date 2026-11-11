@@ -1,0 +1,9 @@
+schema_version: 1
+project_name: "{{PROJECT_NAME}}"
+engine: "{{ENGINE}}"
+primary_platform: "{{PLATFORM}}"
+approval_owner: project_owner
+capability_evolution:
+  auto_capture_signals: true
+  auto_adopt_changes: false
+  max_unapproved_revision_rounds: 2

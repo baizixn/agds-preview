@@ -1,0 +1,35 @@
+# World style and specialist production interfaces
+
+## Style contract across regions
+
+Use a small comparison table: `dimension | invariant hypothesis | observed regional variation | source IDs/coverage | counterexample or unknown | production consequence`. Include shape language and edge treatment; proportions/exaggeration; color/value and saturation hierarchy; material response/detail density; lighting/shadow/atmosphere; water, sky and effects. Keep camera/time-of-day differences distinct from genuine regional design differences.
+
+Collect contrasting available regions to challenge invariants, rather than selecting only similar images. A pale rocky coast and a dark forest might share grouped broad shapes and restrained surface noise while differing in silhouette, palette balance, ecology and light. This is a synthetic example, not a game default. One region cannot establish that every region uses its palette or terrain profile. Unseen regions remain unknown; a provisional local style contract may support local work. AD judges proposed generalization against the approved world direction before it constrains other regions.
+
+Check the approach, activity area and exit where accessible: shared boundary language, terrain/material transitions and navigable-edge readability should connect regions without erasing their character. Scope the evidence to the approved camera and reachable space; a fixed-camera scene does not require unseen all-angle reconstruction.
+
+Transfer later uses a materially different region with its own brief and references. Keep chosen invariants stable, deliberately vary supported regional traits, capture near/mid/far and moving views, and report which hypotheses survived. Neither a prose style table nor successful first-region reconstruction proves transfer. A failed first reconstruction cannot support a professional-fidelity claim.
+
+## Split observable appearance from proposed technique
+
+Describe reference appearance first, with shot/time support. Next propose candidate implementation routes and the discriminating test. Never infer an original game's particle, shader or mesh system merely from a faceted appearance. Technical sources demonstrate their own implementation; they do not identify another game's hidden implementation.
+
+**Water:** inspect wave silhouette/amplitude/wavelength and temporal travel when observable; facet/normal transitions and broad value motion; near/mid/far scale and contrast; view/light response; shoreline contact/foam advance, retreat and disappearance; intersection with placed objects. Static views leave speed/phase/lifetime unknown. Distinguish geometry displacement from shading-only hypotheses with a grazing silhouette and timed fixed-camera observations. A water-colored plane or animated color alone is a proxy when these visible behaviors are required. Trial a near-to-far patch including a bank/object contact before extending the surface. Water/technical artist owns material/wave source; Engineering owns integration and actual cost; assembler owns bank profile and contact placement. Sharing one artifact can be sensible, but the responsibilities and evidence remain explicit.
+
+**Fire, smoke and other time-dependent effects:** describe birth/emission, growth, velocity/rise, deformation/breakup, color/opacity, overlap, extinction and loop/restart where relevant. Observe the whole required temporal envelope, not merely two changing frames. Inspect silhouette and density across view angle, depth intersection, light response and near/far readability. Static geometry groups with animated transforms establish only that implementation's motion; they do not establish reference lifecycle fidelity. Mesh particles, flipbooks, shader deformation or a combination are candidate choices. Choose after a bounded effect slice can be authored with available tools and compared. A realtime VFX executor owns editable emitter/system and source assets; Engineering owns events/time scale/bounds/culling/render integration. Missing this capability blocks final effect delivery.
+
+**Light and sky:** separate direction, shadow softness, exposure, tone mapping, emission/bloom and atmosphere. Diagnose with controlled and intended lighting. If an emission requirement depends on unavailable rendering features, name the dependency and test a scoped implementation with Engineering; do not secretly change shared rendering settings or label bright unlit geometry equivalent. Early lighting is useful for value hierarchy, but it does not waive a spatial failure.
+
+## Executable handoff, not a role name alone
+
+For each required specialty write a compact ticket:
+
+`feature and essential appearance → observed reference IDs/time + unknowns → named executor + verified tool route → native source/output path and dependencies → units/axes/pivot/bounds/contact + materials/render assumptions → event inputs and lifecycle if dynamic → import/integration receiver → fixed views/time envelope and pass/fail observations → missing capability and stop condition`.
+
+For a flipbook route specifically, bind frame range/rate and loop, atlas layout, selected channel encodings and color space, camera assumptions and compatible receiving material version; verify the smallest imported effect. Do not require unused channels or treat an exported sheet as engine integration.
+
+Rigid props route to a bounded modeling executor; characters/deformation need a character-capable executor; material/shader work, VFX and lighting keep their professional responsibility. The assembler sets context, places returned assets and checks relationships, rather than manufacturing every discipline with primitives. Existing rigid-asset and offline-realtime-art methods have narrower evidence limits; do not silently broaden them.
+
+Tool selection follows the job: editable mesh/DCC for explicit profiles and complex rigid shapes; engine terrain tools for supported height-field editing; engine-native prefab/scene tooling for assembly; verified material/VFX tooling for their sources. A tool name is only a proposal until available on the actual route. Trial one source→export/import→reopen chain before batch production. Do not invent scripts, command names or successful imports.
+
+Prioritize structural uncertainty and unavailable specialty slices before expensive detail. A ticket without a capable receiver is an open dependency, not completed production. If a shared cause couples waterline, hull placement and bank geometry, use [D5](../SKILL.md#work-through-evidence-bearing-decisions) to decide whether a joint test is permitted. After a failed approach is paused and reassessed, new supporting evidence can justify one indivisible correction within existing authority; a changed name, cause or receiver alone cannot reset the same unresolved relationship. An exhausted explicit experiment, cost or permission budget still stops its covered trials until renewed authority exists; hand off the analysis and proposed interface without executing another slice. Keep specialist source ownership separate in either case.

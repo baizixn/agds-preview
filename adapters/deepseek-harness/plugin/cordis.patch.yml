@@ -1,0 +1,15 @@
+- insert:
+    - id: agds-preview-skill-filesystem
+      name: '@deepseek-ai/dsh-skill-filesystem'
+      config:
+        providerName: agds-preview
+        includeDefaultRoots: false
+        watch: false
+        customSkillDirs:
+          - !!js >-
+            process.getBuiltinModule('node:path').join(
+              process.getBuiltinModule('node:path').dirname(
+                process.getBuiltinModule('node:module').createRequire(baseUrl).resolve('agds-preview-deepseek-harness/package.json')
+              ),
+              'skills'
+            )

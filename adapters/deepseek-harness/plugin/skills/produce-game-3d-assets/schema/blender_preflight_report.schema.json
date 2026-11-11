@@ -1,0 +1,217 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:agds:blender-preflight-report:2.0.0",
+  "title": "Current-process rigid/static preflight report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "identity",
+    "created_monotonic",
+    "status",
+    "exit_code",
+    "operators",
+    "mode",
+    "production_write_performed",
+    "canary_sha256",
+    "runtime_verified",
+    "device_or_player_verified",
+    "performance_verified",
+    "owner_decision"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "2.0.0"
+    },
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "task_id",
+        "task_root",
+        "requirements_path",
+        "requirements_sha256",
+        "source_path",
+        "source_sha256",
+        "helper_sha256",
+        "writer_sha256",
+        "schema_sha256",
+        "tool",
+        "pid",
+        "process_nonce",
+        "allowlist"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "task_root": {
+          "type": "string",
+          "minLength": 1
+        },
+        "requirements_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "requirements_sha256": {
+          "type": "string",
+          "pattern": "[a-f0-9]{64}"
+        },
+        "source_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_sha256": {
+          "type": "string",
+          "pattern": "[a-f0-9]{64}"
+        },
+        "helper_sha256": {
+          "type": "string",
+          "pattern": "[a-f0-9]{64}"
+        },
+        "writer_sha256": {
+          "type": "string",
+          "pattern": "[a-f0-9]{64}"
+        },
+        "schema_sha256": {
+          "type": "string",
+          "pattern": "[a-f0-9]{64}"
+        },
+        "tool": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "version",
+            "build_hash",
+            "executable",
+            "executable_sha256",
+            "background",
+            "factory_startup"
+          ],
+          "properties": {
+            "version": {
+              "const": "5.1.2"
+            },
+            "build_hash": {
+              "type": "string",
+              "minLength": 1
+            },
+            "executable": {
+              "type": "string",
+              "minLength": 1
+            },
+            "executable_sha256": {
+              "type": "string",
+              "pattern": "[a-f0-9]{64}"
+            },
+            "background": {
+              "const": true
+            },
+            "factory_startup": {
+              "const": true
+            }
+          }
+        },
+        "pid": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "process_nonce": {
+          "type": "string",
+          "pattern": "[a-f0-9]{64}"
+        },
+        "allowlist": {
+          "type": "array",
+          "minItems": 4,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "created_monotonic": {
+      "type": "number",
+      "minimum": 0
+    },
+    "status": {
+      "enum": [
+        "pass",
+        "fail"
+      ]
+    },
+    "exit_code": {
+      "type": "integer",
+      "enum": [
+        0,
+        3
+      ]
+    },
+    "operators": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "operator",
+          "rna_registered",
+          "poll",
+          "call_attempted",
+          "callability",
+          "detail"
+        ],
+        "properties": {
+          "operator": {
+            "enum": [
+              "export",
+              "import"
+            ]
+          },
+          "rna_registered": {
+            "type": "boolean"
+          },
+          "poll": {
+            "type": "boolean"
+          },
+          "call_attempted": {
+            "type": "boolean"
+          },
+          "callability": {
+            "enum": [
+              "blocked",
+              "condition_failed",
+              "condition_satisfied"
+            ]
+          },
+          "detail": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "mode": {
+      "const": "rigid_static"
+    },
+    "production_write_performed": {
+      "const": false
+    },
+    "canary_sha256": {
+      "type": "string",
+      "pattern": "(?:[a-f0-9]{64})?"
+    },
+    "runtime_verified": {
+      "const": "not_verified"
+    },
+    "device_or_player_verified": {
+      "const": "not_verified"
+    },
+    "performance_verified": {
+      "const": "not_verified"
+    },
+    "owner_decision": {
+      "const": "not_decided"
+    }
+  }
+}

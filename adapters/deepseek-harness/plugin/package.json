@@ -1,0 +1,22 @@
+{
+  "name": "agds-preview-deepseek-harness",
+  "version": "0.1.0-preview.2-dsh.2",
+  "description": "AGDS Preview by bzx for DeepSeek Harness",
+  "private": true,
+  "type": "module",
+  "author": "bzx",
+  "exports": {
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "cordis.patch.yml",
+    "skills/",
+    "roles/",
+    "Agent_System/"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

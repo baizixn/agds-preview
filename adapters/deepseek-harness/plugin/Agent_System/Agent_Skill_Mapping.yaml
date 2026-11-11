@@ -1,0 +1,227 @@
+schema_version: 1
+mapping_version: "1.10.0"
+scope: "foundation-plus-pilot-game-design-engineering-qa-art-and-audio"
+status: "approved"
+approved_on: "2026-09-09"
+mappings:
+  - agent_id: "studio-orchestrator"
+    owned_skills:
+      - "studio-orchestrator"
+    invokable_skills:
+      - "manage-project-memory"
+      - "review-candidate"
+      - "bootstrap-game-project"
+      - "evolve-studio-capabilities"
+    collaborates_with:
+      - "project-memory"
+      - "reviewer"
+      - "project-bootstrap"
+      - "capability-curator"
+      - "producer"
+      - "game-design"
+      - "engineering"
+      - "qa-lead"
+      - "art-director"
+      - "audio-director"
+      - "audio-production"
+    forbidden_skill_actions:
+      - "modify another Agent's owned Skill baseline without an approved capability task"
+      - "treat invokable Skills as owned Skills"
+  - agent_id: "project-memory"
+    owned_skills:
+      - "manage-project-memory"
+    invokable_skills: []
+    collaborates_with:
+      - "studio-orchestrator"
+      - "project-bootstrap"
+      - "capability-curator"
+    forbidden_skill_actions:
+      - "invoke production Skills to create project facts"
+      - "modify shared Agent or Skill baselines"
+  - agent_id: "reviewer"
+    owned_skills:
+      - "review-candidate"
+    invokable_skills: []
+    collaborates_with:
+      - "studio-orchestrator"
+      - "capability-curator"
+    forbidden_skill_actions:
+      - "invoke production Skills to redo the Candidate"
+      - "modify the reviewed Agent or Skill"
+  - agent_id: "project-bootstrap"
+    owned_skills:
+      - "bootstrap-game-project"
+    invokable_skills:
+      - "manage-project-memory"
+    collaborates_with:
+      - "studio-orchestrator"
+      - "project-memory"
+      - "reviewer"
+    forbidden_skill_actions:
+      - "invoke capability-curator automatically"
+      - "modify unrelated Agent or Skill baselines"
+      - "treat an invokable Skill as an owned Skill"
+      - "apply or migrate a real project without explicit authorization"
+  - agent_id: "capability-curator"
+    owned_skills:
+      - "evolve-studio-capabilities"
+    invokable_skills:
+      - "manage-project-memory"
+      - "review-candidate"
+    collaborates_with:
+      - "studio-orchestrator"
+      - "project-memory"
+      - "reviewer"
+    forbidden_skill_actions:
+      - "treat an invokable Skill as an owned Skill"
+      - "modify unrelated Agent or Skill baselines"
+      - "generalize project-specific facts into shared Studio behavior"
+      - "promote, version, deploy, or install its own Candidate"
+      - "edit approved Registry or Skill Mapping authority outside an explicitly authorized promotion task"
+  - agent_id: "producer"
+    owned_skills:
+      - "produce-game-project"
+    invokable_skills: []
+    collaborates_with:
+      - "studio-orchestrator"
+      - "engineering"
+      - "qa-lead"
+      - "art-director"
+      - "audio-director"
+      - "audio-production"
+      - "reviewer"
+    forbidden_skill_actions:
+      - "treat specialist Skills as owned or invokable production authority"
+      - "modify another Agent's owned Skill or specialist conclusion"
+      - "turn unapproved scope into a project commitment"
+      - "modify unrelated Agent or Skill baselines"
+      - "promote, version, deploy, install, commit, or push its own Candidate"
+  - agent_id: "game-design"
+    owned_skills:
+      - "design-game"
+    invokable_skills: []
+    collaborates_with:
+      - "studio-orchestrator"
+      - "producer"
+      - "engineering"
+      - "qa-lead"
+      - "art-director"
+      - "audio-director"
+      - "reviewer"
+    forbidden_skill_actions:
+      - "treat production, engineering, art, audio, or QA Skills as owned or invokable authority"
+      - "modify another Agent's owned Skill or specialist conclusion"
+      - "approve game direction, core gameplay, or unapproved scope"
+      - "treat hypotheses, inspirations, competitor patterns, or unapproved Candidates as project facts"
+      - "modify unrelated Agent or Skill baselines"
+      - "promote, version, deploy, install, commit, or push its own task Candidate"
+  - agent_id: "engineering"
+    owned_skills:
+      - "engineer-game"
+    invokable_skills: []
+    collaborates_with:
+      - "studio-orchestrator"
+      - "producer"
+      - "game-design"
+      - "qa-lead"
+      - "art-director"
+      - "audio-director"
+      - "audio-production"
+      - "reviewer"
+    forbidden_skill_actions:
+      - "treat production, design, art, audio, or QA Skills as owned or invokable authority"
+      - "modify another Agent's owned Skill or specialist conclusion"
+      - "approve or change unapproved product requirements, game direction, platform strategy, scope, or quality bar"
+      - "claim runtime, device or player, or performance verification from implementation or local evidence"
+      - "generalize project-specific technical facts into reusable Studio behavior"
+      - "modify unrelated Agent or Skill baselines"
+      - "promote, version, deploy, install, commit, or push its own task Candidate"
+  - agent_id: "qa-lead"
+    owned_skills:
+      - "assure-game-quality"
+    invokable_skills: []
+    collaborates_with:
+      - "studio-orchestrator"
+      - "producer"
+      - "game-design"
+      - "engineering"
+      - "art-director"
+      - "audio-director"
+      - "audio-production"
+      - "reviewer"
+    forbidden_skill_actions:
+      - "treat production, design, engineering, art, audio, or review Skills as owned or invokable authority"
+      - "modify another Agent's owned Skill, Candidate, or specialist conclusion"
+      - "invent requirements, budgets, thresholds, quality bars, release criteria, or evidence"
+      - "turn missing, stale, incomparable, wrong-build, or wrong-environment evidence into Pass"
+      - "make final ship, release, waiver, acceptance, priority, fix, scope, or quality-bar decisions"
+      - "generalize project-specific quality facts into reusable Studio behavior"
+      - "modify unrelated Agent or Skill baselines"
+      - "promote, version, deploy, install, stage, commit, or push its own task Candidate"
+  - agent_id: "art-director"
+    owned_skills:
+      - "direct-game-art"
+      - "produce-game-2d-art"
+      - "produce-game-3d-assets"
+      - "produce-game-realtime-art"
+      - "produce-game-static-character-hair"
+      - "assemble-game-environments"
+    invokable_skills: []
+    collaborates_with:
+      - "studio-orchestrator"
+      - "producer"
+      - "game-design"
+      - "engineering"
+      - "qa-lead"
+      - "audio-director"
+      - "reviewer"
+    forbidden_skill_actions:
+      - "infer execution, automatic invocation, or self-approval from ownership; production requires a named task-scoped executor"
+      - "substitute finite SVG, rigid/static 3D, or offline VFX/lighting evidence for unsupported modes or runtime validation"
+      - "treat the static coarse hair root/crown route as full-character, rig, animation, runtime, performance, or full mesh-topology-transfer capability"
+      - "treat editable environment assembly as automatic scene execution, tool certification, platform validation, or reference-match proof"
+      - "treat production, design, engineering, audio, QA, or review Skills as owned or invokable authority"
+      - "modify another Agent's owned Skill, Candidate, approved facts, or specialist conclusion"
+      - "invent visual direction, target audience, platform, budgets, thresholds, licenses, evidence, or acceptance criteria"
+      - "claim runtime, device, performance, accessibility, usability, or player validation from static art evidence"
+      - "approve final visual direction, style guides, art bibles, generated assets, or asset-list additions"
+      - "generalize project-specific art facts into reusable Studio behavior"
+      - "modify formal authority, unrelated Agent or Skill baselines"
+      - "promote, version, deploy, install, stage, commit, or push its own Candidate"
+  - agent_id: "audio-director"
+    owned_skills:
+      - "direct-game-audio"
+    invokable_skills: []
+    collaborates_with:
+      - "studio-orchestrator"
+      - "producer"
+      - "game-design"
+      - "engineering"
+      - "qa-lead"
+      - "art-director"
+      - "audio-production"
+      - "reviewer"
+    forbidden_skill_actions:
+      - "treat produce-game-audio-assets or integrate-interactive-audio as owned or automatically invokable authority"
+      - "perform all composer, sound-design, dialogue-direction, technical-audio, Engineering, QA, Legal, Producer, Reviewer, or Project Owner work under the Director title"
+      - "modify formal authority, another role's Skill or Candidate, or approved project facts"
+      - "promote, version, deploy, install, stage, commit, or push its own task Candidate"
+  - agent_id: "audio-production"
+    owned_skills:
+      - "produce-game-audio-assets"
+      - "integrate-interactive-audio"
+    invokable_skills: []
+    collaborates_with:
+      - "studio-orchestrator"
+      - "audio-director"
+      - "producer"
+      - "engineering"
+      - "qa-lead"
+      - "reviewer"
+    forbidden_skill_actions:
+      - "treat direct-game-audio, Engineering, QA, production, review, legal, or Owner Skills as owned or automatically invokable authority"
+      - "use one execution Skill's evidence to claim that the other execution mode passed"
+      - "replace a missing Composer, Sound Designer, Dialogue or Voice Director, Technical Sound Designer or Audio Programmer, performer, localization specialist, Engineering, QA, Legal, Producer, Reviewer, or Project Owner authority"
+      - "approve final audio direction, assets, systems, performance, accessibility, localization, rights, release, or quality bars"
+      - "modify formal authority, another role's Candidate, or approved project facts"
+      - "promote, version, deploy, install, stage, commit, or push its own task Candidate"
