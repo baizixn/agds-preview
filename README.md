@@ -1,12 +1,12 @@
 # AGDS Preview
 
-**邀请制候选 · 0.1.0-preview.2 · bzx**
+**邀请制候选 · 0.1.0-preview.3 · bzx**
 
-AGDS 是一套在 Codex 中使用的游戏开发技能。这个候选包含项目初始化、工程、质量验证、项目记录和评审技能。首个练习让你检查一个独立目录，并预览 AGDS 会为它建立哪些协作文件。
+本候选包含 18 个技能，与 DeepSeek Harness 邀请版的清单一致。它们覆盖项目初始化、编排、设计、制作、工程、美术、音频、质量验证、项目记忆、独立评审和能力改进。角色说明随包提供，供分配任务时参考。
 
 ## 安装前
 
-当前候选供 bzx 本地审阅。试用条款确认并收到邀请后，再按下面步骤安装。请准备 Windows PowerShell、已登录且支持 `codex plugin` 的 Codex CLI，以及 Python 3.11 或更新版本。解压时保留隐藏目录。当前命令已核对 CLI 入口，完整安装仍待在干净环境验证。
+当前候选供 bzx 本地审阅。试用条款确认并收到邀请后，再按下面步骤安装。请准备 Windows PowerShell、已登录且支持 `codex plugin` 的 Codex CLI，以及 Python 3.11 或更新版本。解压时保留隐藏目录。请从本目录安装，并在新会话里使用插件。
 
 在含有本 README、`.codex-plugin` 和 `skills` 的目录打开 PowerShell：
 
@@ -18,7 +18,7 @@ codex plugin add agds-preview@agds-bzx-preview --json
 codex plugin list --marketplace agds-bzx-preview --json
 ```
 
-列表中应出现 `agds-preview`，版本为 `0.1.0-preview.2`，安装和启用状态均为真。若命令不受支持、来源冲突或版本不一致，请保存错误和 CLI 版本，发给 bzx 核对。
+列表中应出现 `agds-preview`，版本为 `0.1.0-preview.3`，安装和启用状态均为真。如果之前装过旧版，请先按下文移除旧插件和旧来源，再从新版目录重新安装。若版本仍不一致，请把 Codex 版本和实际显示的插件版本发给 bzx。
 
 ## 第一次试用 · 首岛渔具棚预制体
 
