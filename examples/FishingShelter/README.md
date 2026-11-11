@@ -1,6 +1,8 @@
 # 首岛 · 把渔具棚交付成可复用模块
 
-你在一个小岛的三处泊位摆好了渔具棚。原场景看得出用途，但棚子是散件，缺少统一的源资产和远景模型，而且中间的入口被挡住了。任务是整理出能维护、复用和验收的工程资产，同时保留码头、沙岸、步道、棚区和固定机位。
+你在一个小岛的三处泊位摆好了渔具棚。原场景看得出用途，但棚子是散件，缺少统一的源资产和远景模型，而且中间的入口被挡住了。任务是把三个棚位整理成一个可维护的 Unity Prefab，同时保留泊位位置和固定机位。
+
+**改造范围只到渔具棚。** 起始场景的三个棚位由散件搭成，参考场景的三个棚位引用同一个 `Shelter.prefab`。两版里的 `First Island` 环境层级相同。码头、沙岸、步道和植被是共用布景，仍是场景对象。自动验收通过表示棚区满足交付要求，全岛环境未在本练习中验收。
 
 本练习使用为 Preview 重新制作的原创岛屿、网格和贴图。素材、代码和场景数据独立于商业项目。
 
@@ -9,14 +11,14 @@
 1. 准备 Unity **6000.5.10f1**。第一次导入需要取得 Unity URP 17.5.0 依赖。Windows 上把整个 `FishingShelter` 文件夹复制到短路径，例如 `C:/Unity/IslandPreview`，以免 Unity 导入深层依赖时触及路径长度限制。
 2. 在 Unity Hub 添加 `UnityProject`，打开 `Assets/FishingShelter/Scenes/Shelter_Starter.unity`。在 Game 视图看岛屿，码头连着棚区，中间入口有阻挡物。
 3. 运行 Unity 菜单 **AGDS → Shelter Exercise → Check Active Scene**。Console 应报告 `looseCubes=10`、`prefabRoots=0`、`blockedDoorways=1`、`lodGroups=0`。
-4. 运行 **Check Delivery**。起始版预期被拒绝，提示需要三个棚子根对象。这和改造后使用的是同一个验收入口。
+4. 运行 **Check Delivery** 检查棚区。起始版预期被拒绝，提示需要三个棚子根对象。这和改造后使用的是同一个棚区验收入口。
 5. 在安装 AGDS Preview 后，新开 Codex 聊天并选择这个练习副本。可以直接粘贴下面的话。
 
 > 请用 AGDS Preview 的 engineer-game 和 assure-game-quality 查看这个首岛练习。先解释起始场景的检查结果，列出交付差距和拟修改的文件。保持岛屿、码头、步道、三个泊位位置和固定镜头。自动检查脚本属于验收基准。只有我确认后才改造棚区。
 
 ## 二、走完整的 Blender → Unity 交付
 
-如需让 AGDS 执行改造，告诉它可以写入练习副本里的 `Blender/`、`UnityProject/Assets/FishingShelter/Models/`、`Materials/Shelter.mat`、`Prefabs/` 和你另存的练习场景。先把 `Shelter_Starter.unity` 另存一份再编辑，保留起始版。参考成果可以在 `Shelter_Reference.unity` 查看。
+如需让 AGDS 执行改造，告诉它可以写入练习副本里的 `Blender/`、`UnityProject/Assets/FishingShelter/Models/`、`Materials/Shelter.mat`、`Prefabs/` 和你另存的练习场景。先把 `Shelter_Starter.unity` 另存一份再编辑，保留起始版。在 `Shelter_Reference.unity` 的 Hierarchy 展开 `Shelter Berths`，可以看到同一个 Prefab 的三个实例。打开 `Assets/FishingShelter/Prefabs/Shelter.prefab`，可以直接检查两档 FBX、共享材质及根节点上的碰撞体。
 
 | 要求 | 验收 |
 | --- | --- |
