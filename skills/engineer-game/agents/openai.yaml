@@ -1,0 +1,4 @@
+interface:
+  display_name: "Game Engineering"
+  short_description: "Plan and implement game technology safely"
+  default_prompt: "Use $engineer-game to assess or implement this game engineering task against current project constraints."

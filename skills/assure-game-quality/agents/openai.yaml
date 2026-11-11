@@ -1,0 +1,4 @@
+interface:
+  display_name: "Game Quality Assurance"
+  short_description: "Design evidence-based game and VR validation"
+  default_prompt: "Use $assure-game-quality to create or run a focused validation pass for this game task."

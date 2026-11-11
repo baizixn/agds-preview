@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bootstrap Game Project"
+  short_description: "Create a clean AI-ready game project foundation"
+  default_prompt: "Use $bootstrap-game-project to initialize this game project with collaboration rules and documentation structure."

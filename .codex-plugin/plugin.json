@@ -1,0 +1,16 @@
+{
+  "name": "agds-preview",
+  "version": "0.1.0-preview.2",
+  "description": "Invitation-only preview of AI Game Development Studio.",
+  "author": {
+    "name": "bzx"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "AGDS Preview",
+    "shortDescription": "AI 游戏开发协作预览",
+    "longDescription": "在 Codex 中初始化项目协作结构、实施小型工程任务，并记录验证结果。",
+    "developerName": "bzx",
+    "category": "Productivity"
+  }
+}

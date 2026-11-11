@@ -1,0 +1,4 @@
+interface:
+  display_name: "Review Candidate"
+  short_description: "Independently review candidate results and evidence"
+  default_prompt: "Use $review-candidate to independently assess this candidate against its approved task and evidence."

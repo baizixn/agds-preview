@@ -1,0 +1,20 @@
+{
+  "name": "agds-bzx-preview",
+  "interface": {
+    "displayName": "AGDS Preview by bzx"
+  },
+  "plugins": [
+    {
+      "name": "agds-preview",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

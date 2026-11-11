@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project Memory"
+  short_description: "Maintain clean local project state and handoffs"
+  default_prompt: "Use $manage-project-memory to update the local AI Studio state without promoting unapproved conclusions."
