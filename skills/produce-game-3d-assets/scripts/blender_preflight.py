@@ -1,6 +1,6 @@
 """Engineering-owned current-process gate and rigid/static Blender consumer.
 
-Only this CLI is the authorized production entry. Run in a fresh Blender 5.1.2
+Only this CLI is the authorized production entry. Run in a fresh Blender
 background factory process. The legacy source helper is an internal callee.
 No report from a previous process is a write permit. No tool install or UI use.
 """
@@ -136,8 +136,9 @@ def contract(task_root, allow, requirements_path):
 def snapshot(root, req_path, req, paths, outputs, backend):
     tool = backend.identity()
     require(set(tool) == {"version", "build_hash", "executable", "executable_sha256", "background", "factory_startup"}, "tool identity schema")
-    require(tool["version"] == "5.1.2" and tool["background"] is True and tool["factory_startup"] is True,
-            "Blender 5.1.2 fresh background factory process required")
+    require(re.fullmatch(r"[0-9]+\.[0-9]+\.[0-9]+", tool["version"]) is not None, "Blender version identity required")
+    require(tool["background"] is True and tool["factory_startup"] is True,
+            "Fresh Blender background factory process required")
     require(digest(WRITER) == LEGACY_WRITER_SHA256, "legacy writer bytes changed")
     return {"task_id": req["task_id"], "task_root": str(root), "requirements_path": str(req_path),
             "requirements_sha256": digest(req_path), "source_path": str(paths["source"]),

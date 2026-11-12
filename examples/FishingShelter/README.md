@@ -8,21 +8,25 @@
 
 ## 一、打开起始工程并做只读检查
 
-1. 准备 Unity **6000.5.10f1**。第一次导入需要取得 Unity URP 17.5.0 依赖。Windows 上把整个 `FishingShelter` 文件夹复制到短路径，例如 `C:/Unity/IslandPreview`，以免 Unity 导入深层依赖时触及路径长度限制。
+1. 准备 Unity **6000.5.10f1**。第一次导入需要取得 Unity URP 17.5.0 依赖。Windows 上使用短路径，以免 Unity 导入深层依赖时触及路径长度限制。Codex 用户可以复制 `FishingShelter` 到短路径。Harness 用户按使用指南解压整个适配包，Unity 与 Harness 使用包内同一份练习。
 2. 在 Unity Hub 添加 `UnityProject`，打开 `Assets/FishingShelter/Scenes/Shelter_Starter.unity`。在 Game 视图看岛屿，码头连着棚区，中间入口有阻挡物。
 3. 运行 Unity 菜单 **AGDS → Shelter Exercise → Check Active Scene**。Console 应报告 `looseCubes=10`、`prefabRoots=0`、`blockedDoorways=1`、`lodGroups=0`。
 4. 运行 **Check Delivery** 检查棚区。起始版预期被拒绝，提示需要三个棚子根对象。这和改造后使用的是同一个棚区验收入口。
-5. 在安装 AGDS Preview 后，新开 Codex 聊天并选择这个练习副本。可以直接粘贴下面的话。
+5. 根据宿主打开会话，再粘贴下面的话。
+   - **Codex**：安装 Preview 后，新开 Codex 聊天并选择练习副本。
+   - **DeepSeek Harness**：在插件面板安装适配包的 `plugin` 目录，再把解压后的适配包根目录选为工作目录，用包内这份练习继续验收。
 
-> 请用 AGDS Preview 的 engineer-game 和 assure-game-quality 查看这个首岛练习。先解释起始场景的检查结果，列出交付差距和拟修改的文件。保持岛屿、码头、步道、三个泊位位置和固定镜头。自动检查脚本属于验收基准。只有我确认后才改造棚区。
+> 请载入 AGDS Preview 的 engineer-game 和 assure-game-quality，再查看这个首岛练习。先解释起始场景的检查结果，列出交付差距和拟修改的文件。保持岛屿、码头、步道、三个泊位位置和固定镜头。自动检查脚本属于验收基准。只有我确认后才改造棚区。
 
 ## 二、走完整的 Blender → Unity 交付
+
+推荐使用 [Blender 最新稳定版](https://www.blender.org/download/releases/)，也可继续使用能打开源文件、完成导出的本机版本。原始源文件重开与 FBX 重导验证使用 Blender 5.1.2。只跑 Unity 入门检查时无需安装 Blender。
 
 如需让 AGDS 执行改造，告诉它可以写入练习副本里的 `Blender/`、`UnityProject/Assets/FishingShelter/Models/`、`Materials/Shelter.mat`、`Prefabs/` 和你另存的练习场景。先把 `Shelter_Starter.unity` 另存一份再编辑，保留起始版。在 `Shelter_Reference.unity` 的 Hierarchy 展开 `Shelter Berths`，可以看到同一个 Prefab 的三个实例。打开 `Assets/FishingShelter/Prefabs/Shelter.prefab`，可以直接检查两档 FBX、共享材质及根节点上的碰撞体。
 
 | 要求 | 验收 |
 | --- | --- |
-| 源文件能继续修改 | 在 Blender **5.1.2** 打开 `Blender/Shelter.blend`，查看 LOD0 / LOD1 集合里的棚架、木板和屋顶。改一个屋檐尺寸，重新导出，看三个泊位是否同时更新。 |
+| 源文件能继续修改 | 用 Blender 打开 `Blender/Shelter.blend`，查看 LOD0 / LOD1 集合里的棚架、木板和屋顶。改一个屋檐尺寸，重新导出，看三个泊位是否同时更新。 |
 | 三处使用同一资产 | 棚区三个根对象都引用 `Prefabs/Shelter.prefab`，位置不漂移。 |
 | 两档真实网格 | Unity LODGroup 对应两个独立 FBX。近景 ≤ 1,500 三角面，远景 ≤ 600 且低于近景。 |
 | 材质一致 | 所有棚体网格用同一个 URP Lit 材质和同一张贴图，Unity 导入尺寸上限为 1,024。 |

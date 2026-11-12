@@ -1,7 +1,7 @@
 {
   "name": "agds-preview",
-  "version": "0.1.0-preview.3",
-  "description": "Invitation-only preview of AI Game Development Studio.",
+  "version": "0.1.0-preview.4",
+  "description": "Public preview of AI Game Development Studio.",
   "author": {
     "name": "bzx"
   },

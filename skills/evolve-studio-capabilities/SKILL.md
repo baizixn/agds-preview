@@ -13,7 +13,7 @@ For a usage-statistics request, explain that this Preview has no usage collectio
 
 ## Easy feedback entry
 
-When a member says “帮我反馈这个问题”, handle the packaging: extract the known problem, intended result, and available version from the current task. Missing technical details may remain unknown; do not make the member learn Git or fill an internal schema. Send the prepared feedback to bzx through the invitation channel, or use the [Preview repository](https://github.com/baizixn/agds-preview) if you already have access and authorization. Read `references/assisted-feedback.md` for preparation, authorized Issue submission, file fallback, and PR assistance.
+When a member says “帮我反馈这个问题”, handle the packaging: extract the known problem, intended result, and available version from the current task. Missing technical details may remain unknown; do not make the member learn Git or fill an internal schema. Share the prepared feedback with bzx or submit it to the [Preview repository](https://github.com/baizixn/agds-preview) once authorized. Read `references/assisted-feedback.md` for preparation, authorized Issue submission, file fallback, and PR assistance.
 
 When a member has solved and verified a problem and says “把这次修复提交到线上”, assemble the actual authorized files, before/after explanation and validation evidence, then assist commit/push/PR creation for review. If the task already establishes destination and scope, this request authorizes that submission; do not require another form or confirmation. Keep the published baseline unchanged until its separate review and adoption decision.
 
