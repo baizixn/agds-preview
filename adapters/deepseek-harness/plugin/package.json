@@ -1,6 +1,6 @@
 {
   "name": "agds-preview-deepseek-harness",
-  "version": "0.1.0-preview.2-dsh.2",
+  "version": "0.1.0-preview.4-dsh.1",
   "description": "AGDS Preview by bzx for DeepSeek Harness",
   "private": true,
   "type": "module",

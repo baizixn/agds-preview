@@ -6,7 +6,7 @@ The only authorized production entry is `scripts/blender_preflight.py`. The exac
 
 The writer is frozen to the exact LF bytes stored in Git and the release: SHA256 `5e05c312c7eff748d0e2ded4a988e9fa9800ecc7c2e906dd99e3e20a4c658270`. The repository's file-specific `.gitattributes` keeps that writer LF on checkout. Verify this raw hash in the packaged and installed copies before handoff; runtime does not normalize line endings, accept alternative hashes, or bypass an integrity failure. This byte binding supersedes the earlier pin of a local working copy with four CRLF endings. It does not inherit that copy's execution evidence; new runtime receipts must identify their actual bytes and process.
 
-Run a separately authorized fresh Blender 5.1.2 process:
+Use the latest stable Blender release when practical. The version is recorded for evidence; the fresh process must pass the actual GLB export and import checks. Run a separately authorized fresh Blender process:
 ```text
 blender --background --factory-startup --python-exit-code 1 --python ABS_SKILL/scripts/blender_preflight.py -- --task-root ABS_TASK --requirements ABS_TASK/requirements.json --allow ABS_REPORT_JSON --allow ABS_CANARY_GLB --allow ABS_FACTS_JSON --allow ABS_EXPORT_GLB
 ```

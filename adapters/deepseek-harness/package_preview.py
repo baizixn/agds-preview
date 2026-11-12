@@ -13,7 +13,7 @@ from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 PACKAGE = "AGDS-Preview-DeepSeekHarness"
 PLUGIN_SOURCE = "adapters/deepseek-harness/plugin/"
 SOURCE_PATHS = (
-    PLUGIN_SOURCE.rstrip("/"), "examples", "PREVIEW-TERMS-DRAFT.md",
+    PLUGIN_SOURCE.rstrip("/"), "examples", "LICENSE.md", "CONTRIBUTING.md",
     "README.deepseek-harness.md", "adapters/deepseek-harness/AGENTS.md",
 )
 SKILLS = (

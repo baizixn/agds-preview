@@ -1,6 +1,6 @@
 # AGDS Preview · DeepSeek Harness
 
-**邀请制候选 · 0.1.0-preview.2-dsh.2 · bzx**
+**公开试用 · 0.1.0-preview.4-dsh.1 · bzx**
 
 这个版本包含 18 个 AGDS 技能，覆盖项目初始化、编排、设计、制作、工程、美术、音频、质量验证、项目记忆、独立评审和能力改进。角色职责说明随包提供。Harness 原生角色注册和用量统计尚未接入。
 
@@ -20,4 +20,4 @@
 
 ## 反馈
 
-将 Harness 版本、操作步骤和实际结果发给邀请人 bzx。试用范围见[邀请试用条款草案](PREVIEW-TERMS-DRAFT.md)。
+请到 [Issues](https://github.com/baizixn/agds-preview/issues) 提交 Harness 版本、操作步骤和实际结果。试用范围见[公开试用条款](LICENSE.md)。
